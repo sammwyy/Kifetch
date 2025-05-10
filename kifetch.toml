@@ -1,0 +1,64 @@
+# Example config for kifetch.
+
+[general]
+logo = "linux" # Logo
+# logo_path = "~/.config/kifetch/logos/custom.txt"  # Custom logo path (Optional)
+separator = ": " # Tag separator
+padding = 2      # Space between logo and text
+
+# Custom colors
+[colors]
+color_1 = "bright_red"
+color_2 = "bright_green"
+color_3 = "bright_yellow"
+color_4 = "bright_blue"
+color_5 = "bright_magenta"
+color_6 = "bright_cyan"
+color_reset = "reset"
+color_title = "bold"
+color_value = "bright_white"
+
+# Enabled modules
+[modules]
+enabled = [
+    "os",
+    "kernel",
+    "uptime",
+    "packages",
+    "env",
+    "cpu",
+    "gpu",
+    "memory",
+    "screen",
+    "bios",
+    "disk",
+    "net",
+]
+
+# Custom commands
+[modules.custom]
+weather = "curl -s wttr.in/?format=%t"
+# ip = "curl -s ifconfig.me"
+
+# Output design
+[layout]
+lines = [
+    "{color_1}{os_name} - {os_version}{color_reset}",
+    "{color_2}Kernel{color_reset}{separator}{kernel_version}",
+    "{color_3}Host{color_reset}{separator}{os_hostname}",
+    "{color_4}Uptime{color_reset}{separator}{uptime}",
+    "{color_5}CPU{color_reset}{separator}{cpu_model} ({cpu_cores} cores, {cpu_threads} threads) @ {cpu_freq_ghz} GHz",
+    "{color_6}Memory{color_reset}{separator}{memory_used}/{memory_total} {memory_metric} ({memory_percentage}%)",
+    "{color_1}GPU{color_reset}{separator}{gpu_model} ({gpu_vram} {gpu_vram_metric})",
+    "{color_2}Shell{color_reset}{separator}{env_shell} ({env_username}, {env_lang})",
+    "{color_3}Packages{color_reset}{separator}{packages} ({package_manager})",
+    "{color_4}Screen{color_reset}{separator}{screen_width}x{screen_height} @ {screen_refresh_rate} Hz",
+    "{color_5}Bios{color_reset}{separator}{bios_vendor} ({bios_version})",
+    "{color_6}Motherboard{color_reset}{separator}{bios_motherboard}",
+    "{color_5}Disk{color_reset}{separator}{disk_used}/{disk_total} {disk_metric} ({disk_percentage}%)",
+    "{color_4}Network{color_reset}{separator}{net_iface} ({net_ip})",
+    "{color_3}Wi-Fi{color_reset}{separator}{net_wifi_ssid} ({net_wifi_signal})",
+
+    "{color_2}Weather{color_reset}{separator}{custom_weather}",
+    # "{color_5}IP{color_reset}{separator}{custom_ip}",
+]
